@@ -1,6 +1,7 @@
-var osmosis = require('osmosis')
+const fs = require('fs')
+const osmosis = require('osmosis')
 
-let locations = []
+let surfpoints = []
 
 osmosis
   // .get('http://www.surfline.com/surf-cams-and-reports/')
@@ -18,11 +19,19 @@ osmosis
     .find('link[rel=canonical]@href')
     .set('link')
     .data(function(d) {
-      locations.push(d)
+      surfpoints.push(d)
     })
     .log(console.log)
     .error(console.log)
     .debug(console.log)
     .done(function(){
-      console.log(locations)
+      console.log('au pau');
+      outputSurfpoints()
     })
+
+function outputSurfpoints(){
+  fs.writeFile('./surfpoints.json', JSON.stringify({"surfpoints": surfpoints}, null, 2), (err) => {
+    if (err) throw err;
+    console.log('surfpoints written')
+  })
+}
