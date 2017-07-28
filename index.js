@@ -10,7 +10,7 @@ osmosis
     .find('meta[property=og:region]@content')
     .set('region')
     .find('meta[property=og:country-name]@content')
-    .set('country')
+    .set('continent')
     .find('.subnav-name:nth-child(2) a@title')
     .set('locality')
     .find('meta[property=og:locality]@content')
