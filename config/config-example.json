@@ -1,0 +1,9 @@
+{
+  "PG_CONFIG": {
+    "HOST": "hostname",
+    "PORT": 5000,
+    "DATABASE": "database_name",
+    "USERNAME": "username",
+    "PASSWORD": "password"
+  }
+}
