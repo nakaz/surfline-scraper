@@ -1,12 +1,13 @@
 const fs = require('fs');
 const pgp = require('pg-promise')();
+const CONFIG = require('./config/config.json').PG_CONFIG
 
 const connectionOptions = {
-  host: 'localhost',
-  port: 5432,
-  database: 'surfpoint_search',
-  user: 'nakaz',
-  password: null
+  host: CONFIG.HOST,
+  port: CONFIG.PORT,
+  database: CONFIG.DATABASE,
+  user: CONFIG.USERNAME,
+  password: CONFIG.PASSWORD
 }
 
 const db = pgp(connectionOptions)
